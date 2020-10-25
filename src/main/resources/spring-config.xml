@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context
+                            https://www.springframework.org/schema/context/spring-context.xsd"
+        >
+
+    <!--    spring后期合并了开启注解和包扫描-->
+    <context:annotation-config></context:annotation-config>
+    <context:component-scan base-package="com.coding"></context:component-scan>
+
+    <bean id = "dao" class="com.coding.dao.IndexDaoImpl" init-method="test">
+<!--        <property name="str" value="xxx"></property>-->
+    </bean>
+
+<!--    <bean id = "service" class="com.coding.service.IndexService" c:dao-ref="dao">-->
+<!--        <property name="dao" ref="dao"></property> &lt;!&ndash; setter注入 &ndash;&gt;-->
+<!--        <constructor-arg ref="dao"></constructor-arg> &lt;!&ndash; 构造函数注入 &ndash;&gt;-->
+<!--    </bean>-->
+</beans>
