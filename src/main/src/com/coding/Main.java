@@ -1,7 +1,9 @@
 package com.coding;
 
 import com.coding.config.Spring;
+import com.coding.entity.City;
 import com.coding.service.IndexService;
+import com.coding.util.CommUtil;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -25,5 +27,11 @@ public class Main {
         IndexService indexService = (IndexService) annotationConfigApplicationContext.getBean("indexService");
 
         indexService.test();
+
+
+        City city = new City();
+        city.setId(1);
+        city.setName("asdf");
+        CommUtil.buildSqlQuery(city);
     }
 }
