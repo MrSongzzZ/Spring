@@ -1,6 +1,9 @@
 package com.coding;
 
 import com.coding.config.Spring;
+import com.coding.dao.IndexDao;
+import com.coding.dao.IndexDaoImpl;
+import com.coding.dao.IndexDaoImpl2;
 import com.coding.entity.City;
 import com.coding.service.IndexService;
 import com.coding.util.CommUtil;
@@ -26,12 +29,14 @@ public class Main {
         annotationConfigApplicationContext.refresh();
         IndexService indexService = (IndexService) annotationConfigApplicationContext.getBean("indexService");
 
-        indexService.test();
+        IndexDao indexDao = annotationConfigApplicationContext.getBean(IndexDao.class);
+        indexDao.test();
+//        indexService.test();
 
 
-        City city = new City();
-        city.setId(1);
-        city.setName("asdf");
-        CommUtil.buildSqlQuery(city);
+//        City city = new City();
+//        city.setId(1);
+//        city.setName("asdf");
+//        CommUtil.buildSqlQuery(city);
     }
 }
