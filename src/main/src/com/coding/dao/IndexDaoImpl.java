@@ -16,6 +16,10 @@ public class IndexDaoImpl implements IndexDao{
 //        System.out.println(str);
     }
 
+    public void test1(String temp) {
+        System.out.println(temp);
+    }
+
 //    public void setStr(String str) {
 //        this.str = str;
 //    }

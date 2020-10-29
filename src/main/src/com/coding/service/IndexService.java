@@ -26,6 +26,14 @@ public class IndexService {
         indexDaoImpl1.test();
     }
 
+    public void test1(String temp) {
+        System.out.println(temp);
+    }
+
+    public void test2() {
+
+    }
+
 //    public void setDao(IndexDao dao) {
 //        this.dao = dao;
 //    }

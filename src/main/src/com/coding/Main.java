@@ -27,12 +27,13 @@ public class Main {
         annotationConfigApplicationContext.getEnvironment().addActiveProfile("DEV3");
         annotationConfigApplicationContext.register(Spring.class);
         annotationConfigApplicationContext.refresh();
-        IndexService indexService = (IndexService) annotationConfigApplicationContext.getBean("indexService");
+//        IndexService indexService = (IndexService) annotationConfigApplicationContext.getBean("indexService");
 
-        IndexDao indexDao = annotationConfigApplicationContext.getBean(IndexDao.class);
+        IndexDao indexDao = (IndexDao) annotationConfigApplicationContext.getBean("indexDaoImpl2");
         indexDao.test();
 //        indexService.test();
-
+//        indexService.test1("123");
+//        indexService.test2();
 
 //        City city = new City();
 //        city.setId(1);
