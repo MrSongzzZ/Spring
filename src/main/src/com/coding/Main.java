@@ -9,7 +9,12 @@ import com.coding.service.IndexService;
 import com.coding.util.CommUtil;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import sun.misc.ProxyGenerator;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.annotation.Annotation;
 
 public class Main {
@@ -30,6 +35,19 @@ public class Main {
 //        IndexService indexService = (IndexService) annotationConfigApplicationContext.getBean("indexService");
 
         IndexDao indexDao = (IndexDao) annotationConfigApplicationContext.getBean("indexDaoImpl2");
+
+//        Class<?>[] interfaces = new Class[]{IndexDao.class};
+//        byte[] bytes = ProxyGenerator.generateProxyClass("IndexClass", interfaces);
+//        File file = new File("D:/indexDao.class");
+//        try {
+//            FileOutputStream fileWriter = new FileOutputStream(file);
+//            fileWriter.write(bytes);
+//            fileWriter.flush();
+//            fileWriter.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
         indexDao.test();
 //        indexService.test();
 //        indexService.test1("123");
