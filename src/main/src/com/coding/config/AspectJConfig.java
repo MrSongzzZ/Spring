@@ -1,9 +1,10 @@
 package com.coding.config;
 
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
+import sun.applet.AppletResourceLoader;
 
 @Component  //首先作为一个bean  需要spring 管理
 @Aspect
@@ -14,7 +15,7 @@ public class AspectJConfig {
 
     }
 
-    @Pointcut("within(com.coding.dao.*)")
+    @Pointcut("within(com.coding.service.*)")
     public void pointCutWithin() {
 
     }
@@ -47,9 +48,31 @@ public class AspectJConfig {
 //        System.out.println("before");
 //    }
 
-    @Before("pointCutTarget()")
-    public void before1() {
+//    @Before("pointCutTarget()")
+//    public void before1(JoinPoint joinPoint) {
+//        System.out.println("before");
+//        System.out.println(joinPoint.getThis());
+//        System.out.println(joinPoint.getTarget());
+//    }
+
+//    @After("pointCutWithin()")
+//    public void after() {
+//        System.out.println("after");
+//    }
+
+    @Around("pointCutWithin()")
+    public void around(ProceedingJoinPoint proceedingJoinPoint) {
         System.out.println("before");
+        Object[] args = proceedingJoinPoint.getArgs();
+        for (int i = 0; i < args.length; i++) {
+            args[i] += " world";
+        }
+        try {
+            proceedingJoinPoint.proceed(args);
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+        System.out.println("after");
     }
 
 }

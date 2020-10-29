@@ -32,10 +32,16 @@ public class Main {
         annotationConfigApplicationContext.getEnvironment().addActiveProfile("DEV3");
         annotationConfigApplicationContext.register(Spring.class);
         annotationConfigApplicationContext.refresh();
-//        IndexService indexService = (IndexService) annotationConfigApplicationContext.getBean("indexService");
+        IndexService indexService = (IndexService) annotationConfigApplicationContext.getBean("indexService");
+//        indexService.test();
+        indexService.test1("hello");
+//        indexService.test2();
 
-        IndexDao indexDao = (IndexDao) annotationConfigApplicationContext.getBean("indexDaoImpl2");
 
+//        IndexDao indexDao = (IndexDao) annotationConfigApplicationContext.getBean("indexDaoImpl2");
+//        indexDao.test();
+
+        //获取jdk动态代理后生成类的字节码 并且把它打印
 //        Class<?>[] interfaces = new Class[]{IndexDao.class};
 //        byte[] bytes = ProxyGenerator.generateProxyClass("IndexClass", interfaces);
 //        File file = new File("D:/indexDao.class");
@@ -48,11 +54,7 @@ public class Main {
 //            e.printStackTrace();
 //        }
 
-        indexDao.test();
-//        indexService.test();
-//        indexService.test1("123");
-//        indexService.test2();
-
+        //自定义注解
 //        City city = new City();
 //        city.setId(1);
 //        city.setName("asdf");
