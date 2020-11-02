@@ -1,5 +1,7 @@
 package com.coding.config;
 
+import com.coding.dao.IndexDao;
+import com.coding.dao.IndexDaoImpl2;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -9,6 +11,10 @@ import sun.applet.AppletResourceLoader;
 @Component  //首先作为一个bean  需要spring 管理
 @Aspect
 public class AspectJConfig {
+
+    //把目标对象 实现一个接口 indexDao  具体实现方法使用impl2里面的方法
+    @DeclareParents(value = "com.coding.dao.*", defaultImpl = IndexDaoImpl2.class)
+    public static IndexDao indexDao;
 
     @Pointcut("execution(* com.coding.*.*.*(java.lang.String,..))")  //可以具体到方法和参数 还有返回值 和 可写可不写的访问修饰
     public void pointCutExecution() {
