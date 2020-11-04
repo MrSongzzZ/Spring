@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Profile("DEV2")
+//@Profile("DEV2")
 public class IndexDaoImpl implements IndexDao{
 
 //    private String str;

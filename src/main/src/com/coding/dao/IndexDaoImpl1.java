@@ -10,15 +10,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 //@Primary //指定主要使用的bean  也可以是数据源  可以解决byType 重复的问题
 //实现了 初始化 和销毁时候的回调方法
-@Profile("DEV1")
+//@Profile("DEV1")
 public class IndexDaoImpl1 implements IndexDao, InitializingBean, DisposableBean {
 
 //    private String str;
 
 
-    public IndexDaoImpl1() {
-        System.out.println("constructor");
-    }
+//    public IndexDaoImpl1() {
+//        System.out.println("constructor");
+//    }
 
     @Override
     public void test() {

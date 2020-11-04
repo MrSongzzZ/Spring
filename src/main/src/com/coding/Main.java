@@ -27,19 +27,24 @@ public class Main {
 
         //获取注解对应spring工厂
 //        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(Spring.class);
-        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(Spring.class);
         //手动注册配置文件 然后重新扫描  省略扫描配置文件的过程
-        annotationConfigApplicationContext.getEnvironment().addActiveProfile("DEV3");
-        annotationConfigApplicationContext.register(Spring.class);
-        annotationConfigApplicationContext.refresh();
-        IndexService indexService = (IndexService) annotationConfigApplicationContext.getBean("indexService");
+//        annotationConfigApplicationContext.getEnvironment().addActiveProfile("DEV3");
+//        annotationConfigApplicationContext.register(Spring.class);
+//        annotationConfigApplicationContext.refresh();
+
+
+//        IndexService indexService = (IndexService) annotationConfigApplicationContext.getBean("indexService");
 //        indexService.test();
-        indexService.test1("hello");
+//        indexService.test1("hello");
+//        indexService.test1("hello11");
 //        indexService.test2();
 
 
-//        IndexDao indexDao = (IndexDao) annotationConfigApplicationContext.getBean("indexDaoImpl2");
-//        indexDao.test();
+        IndexDao indexDao = (IndexDao) annotationConfigApplicationContext.getBean("indexDaoImpl2");
+        indexDao.test();
+        IndexDao indexDao2 = (IndexDao) annotationConfigApplicationContext.getBean("indexDaoImpl2");
+        indexDao2.test();
 
         //获取jdk动态代理后生成类的字节码 并且把它打印
 //        Class<?>[] interfaces = new Class[]{IndexDao.class};

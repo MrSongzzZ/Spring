@@ -11,11 +11,10 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-
 public class IndexService {
 
-    @Autowired
-//    @Qualifier("indexDaoImpl1")  //限定符  指定注入的bean
+    @Resource
+    @Qualifier("indexDaoImpl")  //限定符  指定注入的bean
     IndexDao indexDaoImpl1;
 
 //    public IndexService(IndexDao dao) {
